@@ -17,8 +17,13 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
         tags = {"@SmokeTest"},
         features = {"src/test/java/FeatureFiles"},
-        glue = {"StepDefinitions"}
+        glue = {"StepDefinitions"},
 
+        //basit rapor oluşturan plugin Jenkins icin eklendi
+        plugin = {
+        "html:target/cucumber-report",
+        "json:target/cucumber.json",
+        }
 )
 public class _03_TestRunnerSmoke extends AbstractTestNGCucumberTests {
 
