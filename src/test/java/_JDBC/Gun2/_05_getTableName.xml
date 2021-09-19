@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suit1">
+    <test name="Test">
+        <parameter name="tableName" value="city"></parameter>
+        <classes>
+            <class name="_JDBC.Gun2._04_GetRowColumnMetod">
+            <methods>
+               <exclude name="task1"></exclude>
+            </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
