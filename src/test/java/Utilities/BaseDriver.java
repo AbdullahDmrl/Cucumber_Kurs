@@ -27,6 +27,7 @@ public class BaseDriver {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400"); //width, height
                     threadDriver.set( new ChromeDriver(options) );
+                   // normal calismada tekrar bunu acmaliyim
                     //threadDriver.set(new ChromeDriver());
                     break;
                 case "firefox":
