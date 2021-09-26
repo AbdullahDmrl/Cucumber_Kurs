@@ -25,6 +25,7 @@ public class Hooks {
         System.out.println("Seneryo Id="+scenario.getId());
         System.out.println("Seneryo name="+scenario.getName());
 
+
     }
 
     @After // her senaryodan sonra
@@ -33,6 +34,7 @@ public class Hooks {
         System.out.println("Seneryo bitti");
         System.out.println("Seneryo sonucu= "+scenario.getStatus());
         System.out.println("Scenario is failed = "+scenario.isFailed());
+
         LocalDateTime date=LocalDateTime.now();
         DateTimeFormatter formatter=DateTimeFormatter.ofPattern("dd.MM.yyyy");
 

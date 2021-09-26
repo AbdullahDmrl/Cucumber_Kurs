@@ -22,14 +22,19 @@ public class BaseDriver {
             switch (threadBrowserName.get()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-
-                   // Hafizada calisma yani headless work(Jenkins) de bu ayari yapmamiz lazim
+                   // System.out.println("classPath = "+System.getProperty("java.class.path"));
+                if (!runningFromIntelij()) {
+                    // Hafizada calisma yani headless work(Jenkins) bu durumda intelij den calismaz ve option vermeliyiz
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400"); //width, height
-                    threadDriver.set( new ChromeDriver(options) );
-                   // normal calismada tekrar bunu acmaliyim
-                    //threadDriver.set(new ChromeDriver());
-                    break;
+                    threadDriver.set(new ChromeDriver(options));
+                }
+                else {     // Intelij den calisiyorsa asagidakini set ediyor
+
+                    threadDriver.set(new ChromeDriver());
+                }
+                    System.out.println("Intellij den mi calisiyor= "+runningFromIntelij());   break;
+
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     threadDriver.set(new FirefoxDriver());
@@ -49,6 +54,16 @@ public class BaseDriver {
         }
     }
 
+         // Intelij den calistigini asagidaki koddan anliyor
+
+        public static boolean runningFromIntelij()
+        {
+           //   System.out.println("classPath = "+System.getProperty("java.class.path"));
+          //     classPath = C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.2\lib\idea_rt.jar
+
+        String classPath=System.getProperty("java.class.path");
+        return classPath.contains("idea_rt.jar");
+        }
 }
 
 
