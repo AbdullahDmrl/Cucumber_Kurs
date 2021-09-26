@@ -22,7 +22,7 @@ public class BaseDriver {
             switch (threadBrowserName.get()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                   // System.out.println("classPath = "+System.getProperty("java.class.path"));
+                    System.out.println("classPath = "+System.getProperty("java.class.path"));
                 if (!runningFromIntelij()) {
                     // Hafizada calisma yani headless work(Jenkins) bu durumda intelij den calismaz ve option vermeliyiz
                     ChromeOptions options = new ChromeOptions();
