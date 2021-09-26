@@ -22,7 +22,8 @@ public class BaseDriver {
             switch (threadBrowserName.get()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    System.out.println("classPath = "+System.getProperty("java.class.path"));
+    // System.out.println("classPath = "+System.getProperty("java.class.path"));
+    //  classPath= C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\Cucumber Smoke Test Standart\target\test-classes
                 if (!runningFromIntelij()) {
                     // Hafizada calisma yani headless work(Jenkins) bu durumda intelij den calismaz ve option vermeliyiz
                     ChromeOptions options = new ChromeOptions();
